@@ -11,7 +11,6 @@ export default function Blog(props) {
   const [loading, setLoading] = useState(false);
 
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-  console.log(apiKey);
 
   const apiUrl = "https://api.openai.com/v1/chat/completions";
 

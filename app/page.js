@@ -1,6 +1,6 @@
 import Overview from "./components/Overview";
 
-export default function Home(params) {
+export default function Home() {
   return (
     <>
       <Overview />

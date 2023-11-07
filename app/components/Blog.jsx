@@ -10,37 +10,34 @@ export default function Blog(props) {
   const [sumData, setSumData] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-
-  const apiUrl = "https://api.openai.com/v1/chat/completions";
-
   const queryChatGPT = async (query) => {
     setLoading(true);
-    const response = await fetch(apiUrl, {
+    const url = "https://chatgpt-api8.p.rapidapi.com/";
+    const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+        "content-type": "application/json",
+        "X-RapidAPI-Key": `${process.env.NEXT_PUBLIC_API_KEY}`,
+        "X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com",
       },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "user",
-            content: `Summarize this blog ${query}`,
-          },
-        ],
-        max_tokens: 2000,
-        top_p: 1,
-        temperature: 0.5,
-        frequency_penalty: 0,
-        presence_penalty: 0,
-      }),
-    });
+      body: JSON.stringify([
+        {
+          content: query,
+          role: "user",
+        },
+      ]),
+    };
 
-    const data = await response.json();
-    setSumData(data.choices[0].message.content);
-    setLoading(false);
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      const { text } = data;
+      setSumData(text);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
   };
 
   return (

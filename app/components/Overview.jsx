@@ -22,6 +22,12 @@ const blog = [
     desc: "Anger is a natural and healthy emotion, but when it gets out of control, it can have a negative impact on our relationships, work, and overall well-being. Anger management is the process of learning how to recognize and control our anger in a healthy way. In this article, we'll discuss techniques and strategies for managing anger effectively.",
     url: "blog4",
   },
+  {
+    title:
+      "Horoscope Today, November 7, 2023: Read your daily astrological prediction for Aries, Taurus and Others",
+    desc: "Read today's horoscope, November 7, 2023. Today we'll be taking a closer look at what the stars have in store for each of the 12 zodiac signs. Our astrologer has analyzed the movements of the planets and the alignment of the stars to bring you the most accurate and up-to-date horoscope predictions for the day ahead. Whether you're looking for guidance on love, career, or simply a heads up on what to expect, this has got you covered. Let's dive in to see what the cosmos have in store for you today.",
+    url: "blog4",
+  },
 ];
 
 export default function Overview() {
